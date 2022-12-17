@@ -1,16 +1,25 @@
 import openai
 from api_keys import OpenAIKey
 
+# Add API to api_keys.py file.
 openai.api_key = OpenAIKey
 
-prompt = " "
+# Setup parameters.
+prompt = input("Enter the prompt: ")
+size = "256x256"
+amount = 1
 
-response = openai.Image.create(
+# Generate the Iamge request.
+creation = openai.Image.create(
     prompt=prompt,
-    n=1,
-    size="256x256"
+    n=amount,
+    size=size
 )
 
-urlOnly = response["data"]
+# Extract URL from OpenAI reply. 
+imgData = creation["data"]          # Displays output information.
+urlOnly = imgData[0]                # Displays output JSON list.
+linkURL = urlOnly["url"]            # Displays the raw URL from the export.
 
-print(urlOnly)
+# Output the raw URL.
+print(linkURL)
