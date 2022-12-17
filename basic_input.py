@@ -1,7 +1,7 @@
 import openai
-from api_keys import OpenAI
+from api_keys import OpenAIKey
 
-openai.api_key = OpenAI
+openai.api_key = OpenAIKey
 
 prompt = " "
 
