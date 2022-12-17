@@ -5,7 +5,7 @@ from api_keys import OpenAIKey
 openai.api_key = OpenAIKey
 
 # Setup parameters.
-prompt = input("Enter the prompt: ")
+prompt = input("\nEnter the prompt: ")
 tokencount = 250
 engine = "text-davinci-001"
 
@@ -17,16 +17,15 @@ aiOutput = openai.Completion.create(
 )
 
 # Dicipher the answer, please! 
-valsOnly = list(aiOutput.values())
-objOnly = valsOnly[4]                               # Displays aiOutput as a list.
-lineOnly = objOnly[0]                               # Displays Objects JSON list.
-lastOnly = lineOnly["text"]                         # Displays JUST the output for the prompt.
-tokenTotals = valsOnly[5]                           # Displays all 3 tokens.
-promptTokens = tokenTotals["completion_tokens"]     # Tokens used for this prompt
-sessionTokens = tokenTotals                         # Tokens used for this prompt
+aiVals = list(aiOutput.values())
+aiObj = aiVals[4]                                   # Displays aiOutput as a list.
+lineOnly = aiObj[0]                                 # Displays Objects JSON list.
+textOnly = lineOnly["text"]                         # Displays JUST the output for the prompt.
+tokenTotals = aiVals[5]                             # Displays all 3 tokens use.
+promptTokTol = tokenTotals["completion_tokens"]     # Tokens used for this prompt.
+sessionTokens = tokenTotals["total_tokens"]         # Tokens used for this session.
 
 # Display the Output.
-print(lastOnly)
-print("\n")
-print("Tokens used this prompt: ")
-print(promptTokens) 
+print(textOnly)
+print("\nTokens used this prompt: " + str(promptTokTol))
+print("Tokens used this sessiont: " + str(sessionTokens) + "\n")

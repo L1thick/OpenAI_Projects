@@ -5,11 +5,11 @@ from api_keys import OpenAIKey
 openai.api_key = OpenAIKey
 
 # Setup parameters.
-prompt = input("Enter the prompt: ")
+prompt = input("\nEnter the prompt: ")
 size = "256x256"
 amount = 1
 
-# Generate the Iamge request.
+# Generate the Image request.
 creation = openai.Image.create(
     prompt=prompt,
     n=amount,
@@ -22,7 +22,7 @@ urlOnly = imgData[0]                # Displays output JSON list.
 linkURL = urlOnly["url"]            # Displays the raw URL from the export.
 
 # Output the raw URL.
-print(linkURL)
+print("\n" + str(linkURL))
 
 ## TO DO
 #
