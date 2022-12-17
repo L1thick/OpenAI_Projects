@@ -23,3 +23,9 @@ linkURL = urlOnly["url"]            # Displays the raw URL from the export.
 
 # Output the raw URL.
 print(linkURL)
+
+## TO DO
+#
+# Download URL to running users desktop
+#
+# Creat menu for parameter input & size selection
