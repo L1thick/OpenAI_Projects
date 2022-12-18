@@ -26,6 +26,11 @@ promptTokTol = tokenTotals["completion_tokens"]     # Tokens used for this promp
 sessionTokens = tokenTotals["total_tokens"]         # Tokens used for this session.
 
 # Display the Output.
-print(textOnly)
-print("\nTokens used this prompt: " + str(promptTokTol))
-print("Tokens used this sessiont: " + str(sessionTokens) + "\n")
+print(
+    f'''
+    {textOnly}
+
+    Tokens used this prompt: {str(promptTokTol)}
+    Tokens used this sessiont: {str(sessionTokens)}
+
+''')
