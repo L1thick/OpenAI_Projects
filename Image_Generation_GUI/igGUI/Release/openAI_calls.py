@@ -1,7 +1,6 @@
 import re
 import string
 import os.path
-import openai
 from api_keys import OpenAIKey
 from os import path
 
@@ -17,3 +16,6 @@ def PrintMenu():
     print("| Enter your selection as a number: 1, 2, 3, or 4. |")
     print("====================================================")
     print("\nCurrent API key from file: " + OpenAIKey)                  # DEV NOTE
+
+def twoFiveSix():
+    print('test')

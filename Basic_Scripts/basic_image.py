@@ -6,7 +6,7 @@ openai.api_key = OpenAIKey
 
 # Setup parameters.
 prompt = input("\nEnter the prompt: ")
-size = "256x256"
+size = "1024x1024"
 amount = 1
 
 # Generate the Image request.

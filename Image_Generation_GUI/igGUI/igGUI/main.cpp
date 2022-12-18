@@ -2,31 +2,27 @@
 #include <iostream>
 #include <iomanip>
 #include <Windows.h>
-#include <cmath>
 #include <string>
 #include <fstream>
 #include <stdlib.h> 
 
 using namespace std;
 
-void CallProcedure(string pName)							// Description: To call this function, simply pass the function name in Python that you wish to call.
+void CallProcedure(string pName)
 {
-	char* procname = new char[pName.length() + 1];
-	std::strcpy(procname, pName.c_str());
-
+	char* funcName = new char[pName.length() + 1];
+	strcpy(funcName, pName.c_str());
 	Py_Initialize();
-	PyObject* my_module = PyImport_ImportModule("openAI_calls");
-	PyErr_Print();
-	PyObject* my_function = PyObject_GetAttrString(my_module, procname);
-	PyObject* my_result = PyObject_CallObject(my_function, NULL);
+	PyObject* pyDoc = PyImport_ImportModule("openAI_calls");
+	PyObject* pyFunc = PyObject_GetAttrString(pyDoc, funcName);
+	PyObject* results = PyObject_CallObject(pyFunc, NULL);
 	Py_Finalize();
-
-	delete[] procname;
+	delete[] funcName;
 }
 
 void FirsrtOpt() {
 	system("CLS");												// Clear Screen.
-
+	CallProcedure("twoFiveSix");
 	system("pause");											// Pause the output.
 	system("CLS");												// Clear Screen.
 }
